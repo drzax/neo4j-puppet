@@ -30,7 +30,8 @@ class neo4j::ubuntu {
 
   exec {
     'apt-get update':
-      command => '/usr/bin/apt-get update';
+      command => '/usr/bin/apt-get update',
+      timeout => 3600;
 
     'neotech signing key':
       command => '/usr/bin/wget -O - http://debian.neo4j.org/neotechnology.gpg.key | apt-key add -',
